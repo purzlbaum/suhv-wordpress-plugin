@@ -36,7 +36,7 @@ if ($resultsCup == 'on') {
 
     if ($game['goalsaway'] <= '-1') { continue; }
     if ($game['goalshome'] <= '-1') { continue; }
-    if ($game['leaguetype'] == 'Cup') { continue; }
+    if ($game['leaguetype'] == 'Meisterschaft') { continue; }
     var_dump($game);
   }
   $playedCupGamesAllHtml .= '</div>';
