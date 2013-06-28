@@ -37,6 +37,15 @@ function suhv_plugin_page_settings()
 
   }
 
+  if (isset($_POST['update_settings_customcss'] )) {
+
+    $customCss = esc_attr($_POST['customcss']);
+    update_option('customcss', $customCss);
+
+  }
+
+
+
   $apiKeySaved = get_option('api_key_suhv');
 
   $url = get_bloginfo('wpurl');
@@ -86,6 +95,8 @@ function suhv_plugin_page_settings()
       $pluginSettingsContent .= ''
       .                 '<option value="'.$club['club'].'" '.selected($club['club'], $clubNameSaved, false).'>'.$club['club'].'</option>';
     }
+
+    $customCssSaved = get_option('customcss');
     $pluginSettingsContent .= ''
       .              '</optgroup>'
       .           '</select>'
@@ -95,6 +106,23 @@ function suhv_plugin_page_settings()
       .     '<p>'
       .       '<input type="submit" value="Einstellungen speichern" class="button-primary"/>'
       .       '<input type="hidden" name="update_settings_club" value="Y" />'
+      .     '</p>'
+      .   '</form>'
+      .   '<form method="POST" action="'.$url.'/wp-admin/options-general.php?page=suhv-plugin-settings">'
+      .     '<h3>Möchtest du dein eigenes CSS verwenden?</h3>'
+      .     '<table class="form-table">'
+      .       '<tr valign="top">'
+      .         '<th scope="row">'
+      .           '<label for="customcss">Custom CSS</label>'
+      .         '</th>'
+      .         '<td>'
+      .           '<input type="checkbox" id="customcss" name="customcss" '.checked('on', $customCssSaved, false).'>'
+      .         '</td>'
+      .       '</tr>'
+      .     '</table>'
+      .     '<p>'
+      .       '<input type="submit" value="Einstellungen speichern" class="button-primary"/>'
+      .       '<input type="hidden" name="update_settings_customcss" value="Y" />'
       .     '</p>'
       .   '</form>'
       .   '<br />'
@@ -118,3 +146,11 @@ function suhv_plugin_page_settings()
 }
 
 include_once('widget/suhv_widget.php');
+
+$customCssSaved = get_option('customcss');
+if ($customCssSaved != 'on') {
+  add_action('wp_head', 'suhv_css');
+  function suhv_css() {
+    echo '<link rel="stylesheet" href="/wp-content/plugins/suhv_plugin/css/suhv_plugin.css">';
+  }
+}

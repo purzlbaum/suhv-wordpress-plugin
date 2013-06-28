@@ -7,7 +7,7 @@ if ($rankings == 'on') {
   $leagueTable = $league->getTable();
 
   $rankingsHtml = ''
-    . '<div class="leaguetable">'
+    . '<div class="leaguetable"><h4>Tabelle</h4>'
     .   '<table border="0" cellpadding="0" cellspacing="0">'
     .     '<tr>'
     .       '<td class="place">'

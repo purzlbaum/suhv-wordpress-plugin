@@ -53,12 +53,7 @@ class Suhv_Widgets extends WP_Widget
       echo $before_title . $team->getTeam() . $after_title;
 
     // setup for display
-    if ($games == 'on') {
-      printf( '<!-- <p>Hier kommt dann der Spielplan</p> -->');
-    }
-
-
-
+    include_once('suhv_gameplan.php');
     include_once('suhv_results_championship.php');
     include_once('suhv_results_cup.php');
     include_once('suhv_rankings.php');
@@ -148,7 +143,7 @@ class Suhv_Widgets extends WP_Widget
     echo '<input type="checkbox" id="'.$this->get_field_id('games').'" name="'.$this->get_field_name('games').'" '.checked('on', $optionGameSaved, false).' >';
     echo '</td>';
     echo '<td style="padding-left: 30px;">';
-    echo '<label for="'.$this->get_field_id('games').'">Spiele</label>';
+    echo '<label for="'.$this->get_field_id('games').'">Spielplan</label>';
     echo '</td>';
     echo '</tr>';
     echo '<tr>';
