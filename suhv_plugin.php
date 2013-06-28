@@ -4,7 +4,7 @@
 Plugin Name: SUHV Plugin
 Plugin URI: http://claudioschwarz.com
 Description: Connects to the API of swissunihockey.ch and serves data. <strong> Tanks to <a href="http://zepi.org">Matthias Zobrist</a> and <a href="http://pascalbirchler.ch">Pascal Birchler</a> for their help.</strong>
-Version: 1.0
+Version: 0.1 Beta
 Author: Claudio Schwarz
 Author URI: http://claudioschwarz.com
 */
