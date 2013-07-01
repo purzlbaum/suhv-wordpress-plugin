@@ -1,0 +1,31 @@
+/* Results Cup and League */
+.suhv-widget h4 { font-weight: bold; margin: 1em 0 0 0; }
+.cupresults,
+.leagueresults { margin: 0 0 0.5em 0; }
+.cupresults table td.hometeamname,
+.cupresults table td.awayteamname,
+.leagueresults table td.hometeamname,
+.leagueresults table td.awayteamname { padding: 0; width: 99%; }
+
+.cupresults table td.hometeamname,
+.leagueresults table td.hometeamname { padding: 0; }
+
+.cupresults table td.goalshome,
+.cupresults table td.goalsaway,
+.leagueresults table td.goalshome,
+.leagueresults table td.goalsaway{ padding: 0; text-align: right; width: 1%; }
+
+/* Rankings League */
+.leaguetable table { width: 100%; }
+.leaguetable table tr.border-bottom {  }
+.leaguetable table tr.alt { background: #ddd; }
+.leaguetable table tr.my-club { background: #FFD600; }
+.leaguetable table td { margin: 0; padding: 3px 0 3px 10px; border-top: 1px solid #084887;}
+.leaguetable table tr.props td{ border-top: 2px solid #084887;}
+.leaguetable table td:first-child { padding-left: 0; }
+.leaguetable table tr:first-child td { border-top: none; }
+
+.leaguetable table td.teamname { margin: 0; padding: 0 20px 0 0; }
+.leaguetable table td.gamesplayed,
+.leaguetable table td.goalsplusminus,
+.leaguetable table td.points { text-align: right; }
