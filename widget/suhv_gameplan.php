@@ -3,8 +3,6 @@
 if ($games == 'on') {
   $gamePlan = $team->getGames();
 
-  var_dump($gamePlan);
-
   $gamePlanHtml = '<div class="results-championship"><h4>Spielplan</h4>';
   foreach ($gamePlan as $game) {
     $gamePlanHtml .= ''
