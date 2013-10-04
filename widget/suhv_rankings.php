@@ -3,11 +3,15 @@
  * Displays the ranking table
  */
 if ($rankings == 'on') {
+
+
   $league = $team->getSuhvLeague();
   $leagueTable = $league->getTable();
 
-  $rankingsHtml = ''
-    . '<div class="leaguetable"><h4>Tabelle</h4>'
+  $rankingsHtml = '<div class="ranking"><h4>Tabelle</h4>';
+
+  $rankingsHtml .= ''
+    . '<div class="leaguetable">'
     .   '<table border="0" cellpadding="0" cellspacing="0">'
     .     '<tr>'
     .       '<td class="place">'
@@ -40,7 +44,7 @@ if ($rankings == 'on') {
 
     $tableProps = $league->getTableProps();
 
-    if ($teamName == $clubNameSaved) {
+    if ($clubId == $tableEntry['clubid']) {
       $myTeam = ' my-club';
     }
 
@@ -75,6 +79,8 @@ if ($rankings == 'on') {
   }
   $rankingsHtml .= '</table>';
   $rankingsHtml .= '</div>';
+  $rankingsHtml .= '</div>';
+
 
   echo $rankingsHtml;
 }

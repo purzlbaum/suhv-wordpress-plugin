@@ -8,17 +8,18 @@
 
 if ($resultsCup == 'on') {
 
-  $playedGamesAll = $team->getGames();
+  $playedCupGamesAllHtml = $team->getGames();
 
-  $playedCupGamesAllHtml = '<div class="results-cup"><h4>Resultate Cup</h4>';
-  if ($playedGamesAll['goalsaway'] <= -1 || $playedGamesAll['goalshome'] <= -1 ) {
-    $playedCupGamesAllHtml .= ''
-      . '<p>Es sind keine Cup-Resultate vorhanden.</p>';
-  } else {
-    foreach ($playedGamesAll as $game) {
-      $playedCupGamesAllHtml .= ''
-        .'<div class="cupresults">'
-        . '<table border="0" cellpadding="0" cellspacing="0">'
+  $playedCupGamesAllHtmlHtml = '
+    <div class="results-cup">
+    <h4>Resultate Cup</h4>
+    <div class="cupresults">
+    <table border="0" cellpadding="0" cellspacing="0">
+  ';
+
+  foreach ($playedCupGamesAllHtml as $game) {
+    if ($game['played'] == 'true' && $game['leaguetype'] == 'Cup') {
+      $playedCupGamesAllHtmlHtml .= ''
         .   '<tr class="hometeam">'
         .     '<td class="hometeamname">'
         .       $game['hometeamname']
@@ -34,16 +35,10 @@ if ($resultsCup == 'on') {
         .     '<td class="goalsaway">'
         .       $game['goalsaway']
         .     '</td>'
-        .   '</tr>'
-        . '</table>'
-        .'</div>';
+        .   '</tr>';
 
-      if ($game['goalsaway'] <= '-1') { continue; }
-      if ($game['goalshome'] <= '-1') { continue; }
-      if ($game['leaguetype'] == 'Meisterschaft') { continue; }
     }
-
   }
-  $playedCupGamesAllHtml .= '</div>';
-  echo $playedCupGamesAllHtml;
+  $playedCupGamesAllHtmlHtml .= '</table></div></div>';
+  echo $playedCupGamesAllHtmlHtml;
 }
